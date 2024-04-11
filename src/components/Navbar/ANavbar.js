@@ -47,6 +47,9 @@ const ANavbar = () => {
                     <div className="main-menu">
                       <nav className="d-none d-lg-block">
                         <ul id="navigation">
+                        <li>
+                            <Link to="/AHome">Home</Link>
+                          </li>
                           <li>
                             <Link to="/UsersList">Manage Users</Link>
                           </li>
@@ -60,7 +63,7 @@ const ANavbar = () => {
                       </nav>
                     </div>
                   {/* Header-btn */}
-                <div className="header-btn d-none f-right d-lg-block">
+                <div className="header-btn1 d-none f-right d-lg-block">
                   <a href="#" className="btn head-btn1">
                     Logout
                   </a>

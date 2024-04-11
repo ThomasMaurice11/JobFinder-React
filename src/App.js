@@ -10,15 +10,17 @@ import UsersList from './components/Admin/UsersList';
 import SavedJobs from './components/JobSeeker/SavedJobs';
 import UpdateUser from './components/Admin/UpdateUser';
 // import Test from './components/Admin/Test';
-import ANavbar from './components/Admin/ANavbar';
+import ANavbar from './components/Navbar/ANavbar';
 import JNavbar from './components/JobSeeker/JNavbar';
 import ENavbar from './components/Employer/ENavbar';
 import Login from './components/Reg/Login';
 import SignUp from './components/Reg/SignUp';
+import AHome from './components/Admin/AHome';
 
 function App() {
   return (
     <Router>
+      <ANavbar/>
       <Routes>
         <Route path="/addNewJob" element={<AddNewJob />} />
         <Route path="/Jobs" element={<Jobs />} />
@@ -29,16 +31,18 @@ function App() {
         <Route path="/UsersList" element={<UsersList />} />
         <Route path="/SavedJobs" element={<SavedJobs />} />
         <Route path="/UpdateUser" element={<UpdateUser />} />
+        <Route path="/AHome" element={<AHome />} />
         {/* <Route path="/Test" element={<Test />} /> */}
         <Route path="/ANavbar" element={<ANavbar />} />
         <Route path="/JNavbar" element={<JNavbar />} />
         <Route path="/ENavbar" element={<ENavbar />} />
         {/* Nested route for /Jobs under /Login */}
-        <Route path="/Login" element={<Login />}>
+        <Route path="/" element={<Login />}>
           <Route path="Jobs" element={<Jobs />} />
         </Route>
         <Route path="/SignUp" element={<SignUp />} />
       </Routes>
+     
     </Router>
   );
 }

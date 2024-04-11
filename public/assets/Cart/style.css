@@ -117,3 +117,8 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
   }
+  .styled-header {
+    font-size: 2rem;
+    color: #333; /* Adjust the color as needed */
+    /* Add any other styles you want */
+}
