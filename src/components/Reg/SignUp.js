@@ -3,26 +3,42 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { useParams,useHistory } from 'react-router-dom';
 // import { useAuthContext } from './hooks/useAuthContext'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
+
+
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [fname, setFname] = useState('');
-  const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
-  const [mobile, setMobile] = useState('');
+  const navigate = useNavigate();
+  const [UserName, setUsername] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [Role, setRole] = useState('');
 
-  // const { signup, error } = useSignup();
-  // const history = useHistory(); 
-  // const { user } = useAuthContext()// Add this line to use the useHistory hook
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = { fname, mobile, address };
+    try {
+        await axios.post('http://localhost:5109/api/account/register' , {  // Use the correct endpoint '/api/job'
+            UserName,
+            Password,
+            Email,
+            Role
+        });
+        // Optionally, you can reset the form fields here
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        setRole('');
+        navigate('/');
+        alert('User added successfully!');
+        
+        
 
-  
-    // await signup(email, password,fname,mobile,address);
-   
-    
-  };
+    } catch (error) {
+        console.error('Error adding user:', error);
+        alert('Error adding user. Please try again later.');
+    }
+};
     return ( 
         <>
         <meta charSet="UTF-8" />
@@ -50,39 +66,15 @@ const SignUp = () => {
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="Username"
                   id="name"
-                  onChange={(e) => setFname(e.target.value)} 
-                  value={fname}
+                  onChange={(e) => setUsername(e.target.value)} 
+                  value={UserName}
                   placeholder="Your Name"
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="email">
-                  <i className="zmdi zmdi-email" />
-                </label>
-                <input
-                  type="mobile"
-                  name="mobile"
-                  id="email"
-                  onChange={(e) => setMobile(e.target.value)} 
-                  value={mobile}
-                  placeholder="Your Mobile"
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">
-                  <i className="zmdi zmdi-email" />
-                </label>
-                <input
-                  type="address"
-                  name="address"
-                  id="email"
-                  onChange={(e) => setAddress(e.target.value)} 
-                  value={address}
-                  placeholder="Your address"
-                />
-              </div>
+             
+           
               <div className="form-group">
                 <label htmlFor="email">
                   <i className="zmdi zmdi-email" />
@@ -92,7 +84,7 @@ const SignUp = () => {
                   name="email"
                   id="email"
                   onChange={(e) => setEmail(e.target.value)} 
-                  value={email}
+                  value={Email}
                   placeholder="Your Email"
                 />
               </div>
@@ -105,8 +97,21 @@ const SignUp = () => {
                   name="pass"
                   id="pass"
                   onChange={(e) => setPassword(e.target.value)} 
-                  value={password}
+                  value={Password}
                   placeholder="Password"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="pass">
+                  <i className="zmdi zmdi-lock" />
+                </label>
+                <input
+                  type="Text"
+                  name="Role"
+                  id="pass"
+                  onChange={(e) => setRole(e.target.value)} 
+                  value={Role}
+                  placeholder="Role"
                 />
               </div>
               {/* <div className="form-group form-button">

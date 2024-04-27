@@ -2,21 +2,24 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddNewUser = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
+  const [UserName, setUsername] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [Role, setRole] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-        await axios.post('http://localhost:5109/api/user' , {  // Use the correct endpoint '/api/job'
-            username,
-            password,
-            role
+        await axios.post('http://localhost:5109/api/account/register' , {  // Use the correct endpoint '/api/job'
+            UserName,
+            Password,
+            Email,
+            Role
         });
         // Optionally, you can reset the form fields here
         setUsername('');
+        setEmail('');
         setPassword('');
         setRole('');
         alert('User added successfully!');
@@ -36,9 +39,20 @@ const AddNewUser = () => {
                           <label htmlFor="username" className="formbold-form-label">Username</label>
                           <input
                               type="text"
-                              value={username}
+                              value={UserName}
                               onChange={(e) => setUsername(e.target.value)}
                               placeholder="Username"
+                              className="formbold-form-input"
+                          />
+                      </div>
+                
+                      <div className="formbold-input-group">
+                          <label htmlFor="Email" className="formbold-form-label">Email</label>
+                          <input
+                              type="Email"
+                              value={Email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              placeholder="Email"
                               className="formbold-form-input"
                           />
                       </div>
@@ -46,7 +60,7 @@ const AddNewUser = () => {
                           <label htmlFor="password" className="formbold-form-label">Password</label>
                           <input
                               type="password"
-                              value={password}
+                              value={Password}
                               onChange={(e) => setPassword(e.target.value)}
                               placeholder="Password"
                               className="formbold-form-input"
@@ -56,7 +70,7 @@ const AddNewUser = () => {
                           <label htmlFor="role" className="formbold-form-label">Role</label>
                           <input
                               type="text"
-                              value={role}
+                              value={Role}
                               onChange={(e) => setRole(e.target.value)}
                               placeholder="Role"
                               className="formbold-form-input"
