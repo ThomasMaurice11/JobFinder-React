@@ -213,7 +213,7 @@ const ENavbar = ({ handleLogout }) => {
                             </Link>
                           </li>
                           <li>
-                            <Link to="/MyMeesages">
+                            <Link to="/MyMessages">
                               Messages Received
                             </Link>
                           </li>
