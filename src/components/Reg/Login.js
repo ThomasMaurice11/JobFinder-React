@@ -29,6 +29,9 @@ const Login = () => {
       localStorage.setItem('token', token);
       localStorage.setItem('UserName',userName) ;
 
+      // sessionStorage.setItem('token', token);
+      // sessionStorage.setItem('userName', userName);
+
       // Now you can handle the user data as per your requirements
       console.log(userData);
 

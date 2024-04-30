@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddNewJob = () => {
   const [jobTitle, setJobTitle] = useState('');
   const [jobType, setJobType] = useState('');
@@ -30,10 +31,14 @@ const AddNewJob = () => {
           'Authorization': `Bearer ${token}` // Include the authorization token
         }
       });
+     
+                 
+                
 
       console.log('Job created successfully:', response.data);
       // Optionally, you can redirect the user to a different page or show a success message.
     } catch (error) {
+      toast.success('Job added succesfully');
       console.error('Error creating job:', error.message);
       // Handle the error appropriately, e.g., display an error message to the user
     }
@@ -107,6 +112,7 @@ const AddNewJob = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

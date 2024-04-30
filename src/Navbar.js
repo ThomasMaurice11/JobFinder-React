@@ -3,6 +3,7 @@ import { Link, Navigate, useHistory } from "react-router-dom";
 import { AuthContext } from './Context/AuthContext'; // Importing AuthContext
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom'
+import { useAuth } from './Context/AuthContext';
 
 
 
@@ -12,6 +13,9 @@ import { useNavigate } from 'react-router-dom'
 
 // Admin Navbar Component
 const ANavbar = ({ handleLogout }) => {
+  // const { user } = useAuth();
+  // // const Role =user.role ;
+  // console.log("role :",user.role);
   return (
     <>
      <link rel="manifest" href="site.webmanifest" />
@@ -54,7 +58,7 @@ const ANavbar = ({ handleLogout }) => {
                         <ul id="navigation">
                           
                           <li>
-                            <Link to="/UsersList">Manage Users</Link>
+                            <Link to="/UsersList">Manage Users  </Link>
                           </li>
                           <li>
                             <Link to="/JobsToAccept">Manage Jobs</Link>
@@ -213,7 +217,7 @@ const ENavbar = ({ handleLogout }) => {
                             </Link>
                           </li>
                           <li>
-                            <Link to="/MyMeesages">
+                            <Link to="/MyMessages">
                               Messages Received
                             </Link>
                           </li>
@@ -244,9 +248,15 @@ const ENavbar = ({ handleLogout }) => {
 const Navbar = () => {
 
 
-  // const { updateTokenForLogout } = useContext(AuthContext); // Accessing updateToken function from context
-  // const history = useHistory(); // Using useHistory hook to navigate
+  
   const navigate = useNavigate();
+
+
+  // const { user, role } = useAuth();
+
+
+
+
   const initialToken = localStorage.getItem('token')
   if (!initialToken) {
     // Token doesn't exist, handle accordingly (e.g., redirect to login page)
@@ -254,8 +264,10 @@ const Navbar = () => {
   }
   const decodedToken = jwtDecode(initialToken);
   const role=decodedToken.role;
+
+
     console.log("role: ",role);
-    console.log(initialToken); // Accessing user role from context
+    console.log(initialToken);
 
   // Function to handle logout
   const handleLogout = () => {

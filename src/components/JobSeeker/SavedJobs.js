@@ -46,42 +46,38 @@ const SavedJobs = () => {
                                 <div className="tab-content">
                                     <div id="tab-1" className="tab-pane fade show p-0 active">
                                         {savedJobs.map(job => (
-                                            <div key={job.id} className="job-item p-4 mb-4">
-                                                <div className="row g-4">
-                                                    <div className="col-sm-12 col-md-8 d-flex align-items-center">
-                                                        <img
-                                                            className="flex-shrink-0 img-fluid border rounded"
-                                                            src={job.imageUrl}
-                                                            alt=""
-                                                            style={{ width: 80, height: 80 }}
-                                                        />
-                                                        <div className="text-start ps-4">
-                                                            <h5 className="mb-3">{job.jobTitle}</h5>
-                                                            <span className="text-truncate me-3">
-                                                                <i className="fa fa-map-marker-alt text-primary me-2" />
-                                                                {job.location}
-                                                            </span>
-                                                            <span className="text-truncate me-3">
-                                                                <i className="far fa-clock text-primary me-2" />
-                                                                {job.jobType}
-                                                            </span>
-                                                            <span className="text-truncate me-0">
-                                                                <i className="far fa-money-bill-alt text-primary me-2" />
-                                                                {job.salary}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                                        <div className="d-flex mb-3">
-                                                            <Link className="btn btn-primary" to="/ApplyForJob">Apply Now</Link>
-                                                        </div>
-                                                        <small className="text-truncate">
-                                                            <i className="far fa-calendar-alt text-primary me-2" />
-                                                            Date Line: {job.dateLine}
-                                                        </small>
-                                                    </div>
+                                        <div key={job.id} className="job-item p-4 mb-4">
+                                        <div className="row g-4">
+                                            <div className="col-sm-12 col-md-8 d-flex align-items-center">
+                                                <div className="text-start ps-4">
+                                                    <h5 className="mb-3">{job.jobTitle}</h5>
+                                                    <p>{job.jobDescription}</p>
+                                                    <span className="text-truncate me-3">
+                                                        <i className="far fa-clock text-primary me-2" />
+                                                        {job.jobType}
+                                                    </span>
+                                                    <span className="text-truncate me-0">
+                                                        <i className="far fa-money-bill-alt text-primary me-2" />
+                                                        {job.jobBudget}
+                                                    </span>
+                                                    <br></br>
+                                                    <span className="text-truncate my-10">
+                                                        Number of Proposals: {job.numberOfProposals}
+                                                    </span>
                                                 </div>
                                             </div>
+                                            <div className="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                                <div className="d-flex mb-3">
+                                                   
+                                                    <Link className="btn btn-primary" to={`/ApplyForJob/${job.jobId}`}>Apply Now</Link>
+                                                </div>
+                                                <small className="text-truncate">
+                                                    <i className="far fa-calendar-alt text-primary me-2" />
+                                                    Date Line: {job.creationDate}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
                                         ))}
                                         <a className="btn btn-primary py-3 px-5" href="">
                                             Browse More Jobs

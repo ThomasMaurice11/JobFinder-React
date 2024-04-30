@@ -34,7 +34,7 @@ const ProposalsToAccept = () => {
                     <div className="container-xxl py-5">
                         <div className="container">
                             <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                                Job Listing
+                               My Proposals
                             </h1>
                             <div
                                 className="tab-class text-center wow fadeInUp"
