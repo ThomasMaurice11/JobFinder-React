@@ -26,8 +26,8 @@ const Login = () => {
       const userName=userData.userName // Assuming your API returns the token in the response data
 
       // Save token to local storage
-      localStorage.setItem('token', token);
-      localStorage.setItem('UserName',userName) ;
+      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('UserName',userName) ;
 
       // sessionStorage.setItem('token', token);
       // sessionStorage.setItem('userName', userName);

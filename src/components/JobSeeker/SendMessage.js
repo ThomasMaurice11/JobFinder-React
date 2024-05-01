@@ -13,7 +13,7 @@ const SendMessage = () => {
 
         try {
             // Get token from local storage
-            const token = localStorage.getItem('token');
+            const token = sessionStorage.getItem('token');
 
             // Make the request with the token in the Authorization header
             const response = await axios.post(

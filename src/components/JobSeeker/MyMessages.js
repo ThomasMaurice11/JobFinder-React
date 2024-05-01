@@ -11,7 +11,7 @@ const MyMessages = () => {
         try {
             const response = await axios.get('http://localhost:5109/api/messages/receiver', {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                 }
             });
             setMessages(response.data);

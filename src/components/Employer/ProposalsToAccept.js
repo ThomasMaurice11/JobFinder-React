@@ -11,7 +11,7 @@ const ProposalsToAccept = () => {
         try {
             const response = await axios.get('http://localhost:5109/api/proposal/receiver', {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                 }
             });
             setProposals(response.data);
@@ -29,7 +29,7 @@ const ProposalsToAccept = () => {
             await axios.put(`http://localhost:5109/api/proposal/accept?proposalId=${proposalId}`, {}, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                 }
             });
     
@@ -50,7 +50,7 @@ const ProposalsToAccept = () => {
                 await axios.put(`http://localhost:5109/api/proposal/refuse?proposalId=${proposalId}`, {}, {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                     }
                 });
         

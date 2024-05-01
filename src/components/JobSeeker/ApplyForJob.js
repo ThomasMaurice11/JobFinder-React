@@ -20,8 +20,8 @@ const ApplyForJob = () => {
       console.log(describeYourself);
 
       try {
-        // Retrieve authentication token from localStorage, assuming it's stored there
-        const token = localStorage.getItem('token');
+        // Retrieve authentication token from sessionStorage, assuming it's stored there
+        const token = sessionStorage.getItem('token');
 
         // Make sure token is available
         if (!token) {

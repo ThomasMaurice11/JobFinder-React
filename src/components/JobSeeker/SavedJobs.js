@@ -8,7 +8,7 @@ const SavedJobs = () => {
     useEffect(() => {
         const fetchSavedJobs = async () => {
             try {
-                const token = localStorage.getItem('token');
+                const token = sessionStorage.getItem('token');
                 if (!token) {
                     throw new Error('Authentication token not found');
                 }

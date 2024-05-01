@@ -257,7 +257,7 @@ const Navbar = () => {
 
 
 
-  const initialToken = localStorage.getItem('token')
+  const initialToken = sessionStorage.getItem('token')
   if (!initialToken) {
     // Token doesn't exist, handle accordingly (e.g., redirect to login page)
     return <Link to="/" />;
@@ -272,7 +272,7 @@ const Navbar = () => {
   // Function to handle logout
   const handleLogout = () => {
     // Delete the token from local storage
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     // Clear the token in context
     // updateTokenForLogout('');
     // Navigate to the home page

@@ -7,7 +7,7 @@
 // // Create the AuthProvider component
 // export const AuthProvider = ({ children }) => {
 //   // Get the token from local storage or set a default value
-//   const initialToken = localStorage.getItem('token') || '';
+//   const initialToken = sessionStorage.getItem('token') || '';
 
 //   // Set up state to store the token and role
 //   const [token, setToken] = useState(initialToken);
@@ -16,7 +16,7 @@
 //   // Function to update the token and role
 //   const updateToken = (newToken) => {
 //     setToken(newToken);
-//     localStorage.setItem('token', newToken); // Update token in local storage
+//     sessionStorage.setItem('token', newToken); // Update token in local storage
 //     const decodedToken = jwtDecode(newToken);
 //     if (decodedToken) {
 //       const decodedRole = decodedToken.role;
@@ -26,8 +26,8 @@
 //   const updateTokenForLogout = (newToken) => {
 //     // Update the token state
 //     setToken(newToken);
-//     // Update the token in localStorage
-//     localStorage.setItem('token', newToken);
+//     // Update the token in sessionStorage
+//     sessionStorage.setItem('token', newToken);
 //   };
 //   };
 
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   const [role, setRole] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if (token) {
       const decodedToken = jwtDecode(token);
       setUser(decodedToken);

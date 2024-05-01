@@ -11,7 +11,7 @@ const ProposalsToAccept = () => {
         try {
             const response = await axios.get('http://localhost:5109/api/proposal/myproposals', {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${sessionStorage.getItem('token')}`
                 }
             });
             setProposals(response.data);

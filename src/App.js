@@ -31,8 +31,8 @@ function App() {
   useEffect(() => {
     // Function to fetch and decode token
     const fetchTokenAndDecode = () => {
-      // Extract token from localStorage
-      const initialToken = localStorage.getItem('token');
+      // Extract token from sessionStorage
+      const initialToken = sessionStorage.getItem('token');
 
       // Decode token to extract role
       const decodedToken = initialToken ? jwtDecode(initialToken) : null;

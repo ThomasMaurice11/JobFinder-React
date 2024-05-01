@@ -64,7 +64,7 @@ const Jobs = () => {
 
 
    
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     if (!token) {
         // Token doesn't exist, handle accordingly (e.g., redirect to login page)
         return <Link to="/" />;
